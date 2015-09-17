@@ -1,0 +1,17 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+
+<h3>New Comment</h3>
+
+<%= form_for [@post, @comment] do |f|%>
+	<%= f.text_area :body  %> <br>
+	<%= f.submit %>
+<% end %>
+
+	<h3> Comment </h3>
+
+<% @post.comments.each do |comment| %>
+	<p><%= comment.body %></p>
+	<hr>
+<% end %>
