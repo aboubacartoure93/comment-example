@@ -1,0 +1,6 @@
+<div class="chirp">
+	<h3><%= chirp.body %></h3>
+	<p>by <%= link_to chirp.user.username, profile_user_path(chirp.user.username) %> | 
+		<%= link_to 'show', chirp %>
+	</p>
+</div>

@@ -2,6 +2,17 @@
 <p><%= @post.body %></p>
 
 
+
+<h3> Comments </h3>
+
+<% @post.comments.each do |comment| %>
+	<p><%= comment.body %></p>
+	<p><%= time_ago_in_words(comment.created_at) %> ago</p>
+	<hr>
+<% end %>
+
+
+
 <h3>New Comment</h3>
 
 <%= form_for [@post, @comment] do |f|%>
@@ -9,9 +20,4 @@
 	<%= f.submit %>
 <% end %>
 
-	<h3> Comment </h3>
-
-<% @post.comments.each do |comment| %>
-	<p><%= comment.body %></p>
-	<hr>
-<% end %>
+	

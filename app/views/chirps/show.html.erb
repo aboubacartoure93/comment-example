@@ -1,0 +1,5 @@
+<h1><%= @chirp.body %></h1>
+<p>by <%= link_to @chirp.user.username, @chirp.user %></p>
+<% if current_user and current_user == @chirp.user %>
+	<%= link_to 'edit chirp', edit_chirp_path(@chirp) %>
+<% end %>

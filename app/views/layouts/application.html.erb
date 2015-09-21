@@ -1,14 +1,40 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comment</title>
+  <title>Post Net</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<%= link_to 'Tumblr', root_path %>
+		<nav>
+			<% if current_user %>
+				<span>Hello <%= link_to current_user.username, profile_path %></span>
+				<%= link_to 'sign out', sessions_path, method: :delete %>
+				<%= link_to 'new post', new_post_path %>
+			<% else %>
+				<%= link_to 'sign up', new_user_path %>
+				<%= link_to 'sign in', login_path %>
+			<% end %>
+		</nav>
+	</header>
+	<main>
+		<% if flash[:notice] %>
+			<div class="notice"><%= flash[:notice] %></div>
+		<% end %>
 
-<%= yield %>
+		<%= yield %>
+	</main>
 
 </body>
 </html>
+
+
+
+
